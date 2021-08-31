@@ -39,3 +39,6 @@ mongoose
 module.exports = app;
 require("./src/app/routes/auth.routes")(app);
 require("./src/app/routes/users.routes")(app);
+
+//redis
+require("./redis");

@@ -12,7 +12,6 @@ passport.use(
     async (token, done) => {
       User.findOne({ emailAddress: token.user.emailAddress })
         .then(async (data) => {
-          console.log(data);
           return done(null, data);
         })
         .catch((error) => {

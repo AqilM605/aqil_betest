@@ -2,10 +2,11 @@ const router = require("express").Router();
 const userController = require("../controllers/user.controller");
 const { checkIfEmptyBody } = require("../middleware/handlingError");
 const { authMiddleware } = require("../middleware/auth");
+const { cache } = require("../middleware/cache");
 
 module.exports = (app) => {
   // Getting all user
-  router.get("/", authMiddleware(), userController.get);
+  router.get("/", authMiddleware(), cache(), userController.get);
 
   // Getting one user
   router.get("/:id", authMiddleware(), userController.getById);

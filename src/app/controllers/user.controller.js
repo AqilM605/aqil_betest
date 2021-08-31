@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const { client } = require("../../../redis");
 
 // Getting all user
 exports.get = async (req, res) => {
@@ -12,7 +13,7 @@ exports.get = async (req, res) => {
     } else {
       users = await User.find();
     }
-
+    client.setex("user", 3600, JSON.stringify(users));
     return res.status(200).json(users);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -39,11 +40,9 @@ exports.getById = async (req, res) => {
 // Registering user
 exports.create = async (req, res) => {
   const user = new User(req.body);
-  console.log(req.body.emailAddress);
   User.findOne({ emailAddress: req.body.emailAddress })
     .then(async (data) => {
       if (data) {
-        console.log(data);
         return res.status(400).json({ message: "email already exists" });
       } else {
         const newUser = await user.save();
