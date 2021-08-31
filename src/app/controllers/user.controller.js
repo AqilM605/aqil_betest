@@ -43,6 +43,7 @@ exports.create = async (req, res) => {
   User.findOne({ emailAddress: req.body.emailAddress })
     .then(async (data) => {
       if (data) {
+        client.flushdb(function (err, succeeded) {});
         return res.status(400).json({ message: "email already exists" });
       } else {
         const newUser = await user.save();
@@ -67,6 +68,7 @@ exports.update = (req, res) => {
           message: `Cannot update user with id= ${id}. data was not found!`,
         });
       } else {
+        client.flushdb(function (err, succeeded) {});
         return res.send(data);
       }
     })
@@ -87,6 +89,7 @@ exports.delete = (req, res) => {
           message: `Cannot delete user with id= ${id}. data was not found!`,
         });
       } else {
+        client.flushdb(function (err, succeeded) {});
         return res.send({
           message: "user was deleted successfully!",
         });
