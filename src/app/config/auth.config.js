@@ -2,7 +2,8 @@ const passport = require("passport");
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 const JWTstrategy = require("passport-jwt").Strategy;
 const User = require("../models/user.model");
-//Extract token from header and validate the kr
+
+//Extract token from header and get email data
 passport.use(
   new JWTstrategy(
     {
