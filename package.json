@@ -2,19 +2,20 @@
   "name": "aqil_betest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "aqil",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^10.0.0",
-    "nodemon": "2.0.12"
+
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "2.0.12",
     "bcrypt": "5.0.1",
     "cors": "2.8.5",
     "del": "6.0.0",

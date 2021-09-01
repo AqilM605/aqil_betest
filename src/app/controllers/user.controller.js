@@ -43,9 +43,9 @@ exports.create = async (req, res) => {
   User.findOne({ emailAddress: req.body.emailAddress })
     .then(async (data) => {
       if (data) {
-        client.flushdb(function (err, succeeded) {});
         return res.status(400).json({ message: "email already exists" });
       } else {
+        client.flushdb(function (err, succeeded) {});
         const newUser = await user.save();
         return res.status(201).json(newUser);
       }
