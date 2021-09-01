@@ -20,8 +20,7 @@ This project uses a number of stack to work properly:
 - Mongoose - Node JS framework that simplify implementation of mongo DB
 - Passport - Provide security using JWT token
 
-And of course Dillinger itself is open source with a [public repository][dill]
-on GitHub.
+
 
 ## Installation
 
