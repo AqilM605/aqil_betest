@@ -1,5 +1,5 @@
 # Aqil_betest
-Sample project to implementate Express JS, Mongo DB, and Redis
+Sample project implementing Express JS, Mongo DB, and Redis
 
 
 ## Features
