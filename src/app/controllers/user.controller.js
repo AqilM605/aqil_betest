@@ -12,8 +12,9 @@ exports.get = async (req, res) => {
       users = await User.findOne({ identityNumber: req.query.identityNumber });
     } else {
       users = await User.find();
+      client.setex("user", 3600, JSON.stringify(users));
     }
-    client.setex("user", 3600, JSON.stringify(users));
+
     return res.status(200).json(users);
   } catch (err) {
     res.status(500).json({ message: err.message });
